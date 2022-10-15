@@ -42,14 +42,12 @@ function App() {
     <div className="App">
       <h1>Weather App</h1>
       <div className="container">
-        <h1>hi</h1>
-     { data &&
-        <> 
-        <p>{`It is currently ${data.main.temp} in ${data.name}`}</p>
-        <p className="date">todays date</p>
-      </> 
-    }
-        
+        { data &&
+            <> 
+              <p>{`It is currently ${data.main.temp} in ${data.name}`}</p>
+              <p className="date">todays date</p>
+            </> 
+          } 
       </div>
     </div>
   );
