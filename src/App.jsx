@@ -5,14 +5,11 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [location, setLocation] = useState()
 
-  
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
       setLocation(position.coords)
     })
- 
-  }, [])
-  
+  }, []) 
   
   useEffect(() => {
     if(location) {
@@ -29,8 +26,10 @@ const fetchData = async () => {
     }
   
 
-  // console.log(currentDate.getDate(), currentDate.getHours() + 
-  // ":" + currentDate.getMinutes())  
+  const currentDate = new Date()
+
+  console.log(currentDate.getDate(), currentDate.getHours() + 
+  ":" + currentDate.getMinutes())  
 
 
   return (
@@ -39,8 +38,8 @@ const fetchData = async () => {
       <div className="container">
         { data &&
             <> 
-              <p>{`It is currently ${data.main.temp}°  in ${data.name}`}</p>
-              <p className="date">todays date</p>
+              <p className=''>{`It is currently ${data.main.temp}°  in ${data.name}`}</p>
+              <p className="date">todays date {currentDate.getDay()}/{currentDate.getMonth()}/{currentDate.getFullYear()}</p>
             </> 
           } 
       </div>
