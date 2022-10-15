@@ -10,29 +10,25 @@ function App() {
     navigator.geolocation.getCurrentPosition(position => {
       setLocation(position.coords)
     })
-
+ 
   }, [])
   
   
   useEffect(() => {
-    const fetchData = async () => {
+    if(location) {
+      fetchData()
+    }  
+  }, [location])
+  
+const fetchData = async () => {
       const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=2cef8d9b64447d4ce805fcfbe539ea4b&units=imperial`) 
       const fetchedData = await res.json()
       console.log('got data')
       setData(fetchedData)
       setLoading(false)
     }
-
-    setTimeout(() => {
-      fetchData()
-    },3000)
-    
-  }, [location])
   
 
-  
-
-  console.log( data ? data : 'no data')
   // console.log(currentDate.getDate(), currentDate.getHours() + 
   // ":" + currentDate.getMinutes())  
 
