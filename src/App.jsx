@@ -26,10 +26,10 @@ const fetchData = async () => {
     }
   
 
-  const currentDate = new Date()
+  const currentDate = new Date().toJSON().slice(0,10)
 
-  console.log(currentDate.getDate(), currentDate.getHours() + 
-  ":" + currentDate.getMinutes())  
+  // console.log(currentDate.getDate(), currentDate.getHours() + 
+  // ":" + currentDate.getMinutes())  
 
 
   return (
@@ -39,7 +39,8 @@ const fetchData = async () => {
         { data &&
             <> 
               <p className=''>{`It is currently ${data.main.temp}°  in ${data.name}`}</p>
-              <p className="date">todays date {currentDate.getDay()}/{currentDate.getMonth()}/{currentDate.getFullYear()}</p>
+              {/* <p className="date">todays date {currentDate.getDay()}/{currentDate.getMonth()}/{currentDate.getFullYear()}</p> */}
+              <p className="date">today is {currentDate}</p>
             </> 
           } 
       </div>
